@@ -4,4 +4,5 @@
 void AD_Init(void);
 uint16_t AD_GetValue(void);
 uint16_t AD_GetAverage(uint8_t times);
+float AD_GetVddaVoltage(void);
 #endif

@@ -4,18 +4,20 @@
 #include "sys.h"
 #include "beep.h"
 #include "OLED.h"
+#include "AD.h"
 #include "PWM.h"
 #include "IC.h"
 
  
 /************************************************
- ALIENTEKÕ½½¢STM32¿ª·¢°åÊµÑé3
- °´¼üÊäÈëÊµÑé  
- ¼¼ÊõÖ§³Ö£ºwww.openedv.com
- ÌÔ±¦µêÆÌ£ºhttp://eboard.taobao.com 
- ¹Ø×¢Î¢ĞÅ¹«ÖÚÆ½Ì¨Î¢ĞÅºÅ£º"ÕıµãÔ­×Ó"£¬Ãâ·Ñ»ñÈ¡STM32×ÊÁÏ¡£
- ¹ãÖİÊĞĞÇÒíµç×Ó¿Æ¼¼ÓĞÏŞ¹«Ë¾  
- ×÷Õß£ºÕıµãÔ­×Ó @ALIENTEK
+    float vdda_voltage;
+            vdda_voltage = AD_GetVddaVoltage();
+            voltage = (float)adValue / 4095 * vdda_voltage;
+            vdda_voltage = AD_GetVddaVoltage();
+            max_voltage = (float)max_adc_val / 4095 * vdda_voltage;
+ å…³æ³¨å¾®ä¿¡å…¬ä¼—å¹³å°å¾®ä¿¡å·ï¼š"æ­£ç‚¹åŸå­"ï¼Œå…è´¹è·å–STM32èµ„æ–™ã€‚
+ å¹¿å·å¸‚æ˜Ÿç¿¼ç”µå­ç§‘æŠ€æœ‰é™å…¬å¸  
+ ä½œè€…ï¼šæ­£ç‚¹åŸå­ @ALIENTEK
 ************************************************/
 
 #define ADC_REF_VOLTAGE  3.155f 
